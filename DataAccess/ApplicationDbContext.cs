@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Persistence;
+namespace DataAccess;
 
 public class ApplicationDbContext : IdentityDbContext<AppUser,AppRole,string>
 {

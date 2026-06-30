@@ -1,5 +1,4 @@
-﻿using Infrastructure.Persistence;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,6 +18,8 @@ namespace DataAccess
 
             }).AddRoles<AppRole>()
               .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddScoped<DataSeeder>();
 
             return services;
         }

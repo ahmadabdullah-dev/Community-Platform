@@ -15,12 +15,20 @@ export const useAuth = () => {
  const loginUserAsync = useMutation<Result<string>, Error, LoginUserDto>({
   mutationFn: async (creds : LoginUserDto) => {
     const response = await agent.post<Result<string>>("/auth/login-user",creds);
+    console.log(response.data)
+    return response.data;
+  }
+ })
+ const logoutUserAsync = useMutation<Result<string>,Error>({
+  mutationFn: async () => {
+    const response = await agent.post<Result<string>>("/auth/logout-user");
     return response.data;
   }
  })
 
     return {
         registerUserAsync,
-        loginUserAsync
+        loginUserAsync,
+        logoutUserAsync
     }
 }

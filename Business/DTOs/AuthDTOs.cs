@@ -14,5 +14,6 @@ public record LoginUserDTO(
 public record UserDTO(
     string UserName,
     string Email,
-    string? Country
+    string? Country,
+    IList<string> Roles
 );

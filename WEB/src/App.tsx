@@ -1,18 +1,19 @@
-import './App.css'
-import LoginUserForm from './features/auth/LoginUserForm'
-import LogoutUserAsync from './features/auth/LogoutUserButton'
-import RegisterUserForm from './features/auth/RegisterUserForm'
+import "./App.css";
+import LoginUserForm from "./features/auth/LoginUserForm";
+import LogoutUserAsync from "./features/auth/LogoutUserButton";
+import RegisterUserForm from "./features/auth/RegisterUserForm";
+import USerCard from "./features/user/UserCard";
 
 function App() {
-
   return (
     <>
       Community Platform
-      <RegisterUserForm/>
-      <LoginUserForm/>
-      <LogoutUserAsync/>
+      <USerCard />
+      <RegisterUserForm />
+      <LoginUserForm />
+      <LogoutUserAsync />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

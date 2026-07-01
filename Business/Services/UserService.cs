@@ -30,11 +30,14 @@ public class UserService : IUserService
         if (user == null)
             return Result<UserDTO>.Failure("Current user was not found in database");
 
+        var roles = await _userManager.GetRolesAsync(user);
+
         var userDTO = new UserDTO
         (
              user.UserName!,
              user.Email!,
-             user.Country
+             user.Country,
+             roles
         );
 
         return Result<UserDTO>.Success(userDTO);

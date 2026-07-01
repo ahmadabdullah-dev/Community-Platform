@@ -12,7 +12,7 @@ import {
 import { useAuth } from "../../lib/hooks/useAuth";
 import type { RegisterUserDto } from "../../lib/types/auth";
 
-export const RegisterPage = () => {
+export default function RegisterUserForm() {
   const { registerUserAsync } = useAuth();
 
   const [formData, setFormData] = useState<RegisterUserDto>({

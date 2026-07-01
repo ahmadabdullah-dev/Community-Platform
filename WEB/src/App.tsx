@@ -1,12 +1,14 @@
 import './App.css'
-import { RegisterPage } from './features/auth/RegisterUserForm'
+import LoginUserForm from './features/auth/LoginUserForm'
+import RegisterUserForm from './features/auth/RegisterUserForm'
 
 function App() {
 
   return (
     <>
       Community Platform
-      <RegisterPage/>
+      <RegisterUserForm/>
+      <LoginUserForm/>
     </>
   )
 }

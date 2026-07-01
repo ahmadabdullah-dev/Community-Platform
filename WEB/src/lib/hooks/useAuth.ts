@@ -1,0 +1,18 @@
+import { useMutation} from "@tanstack/react-query";
+import agent from "../api/agent";
+import type { RegisterUserDto } from "../types/auth";
+import type { Result } from "../types/common";
+
+export const useAuth = () => {
+
+ const registerUserAsync = useMutation<Result<string>, Error, RegisterUserDto>({
+   mutationFn: async (creds: RegisterUserDto) => {
+     const response = await agent.post<Result<string>>("/auth/register-user",creds);
+     return response.data;
+   },
+ });
+
+    return {
+        registerUserAsync
+    }
+}

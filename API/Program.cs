@@ -1,7 +1,6 @@
-using Business;
-
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddAPI();
 builder.Services.AddBusiness();
 builder.Services.AddDataAccess(builder.Configuration);
 
@@ -24,6 +23,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowWeb");
 
 app.UseAuthorization();
 

@@ -6,5 +6,13 @@ public record RegisterUserDTO(
     string Password,
     string ConfirmPassword
 );
-
-
+public record LoginUserDTO(
+    string Email,
+    string Password,
+    bool IsPersistence
+);
+public record UserDTO(
+    string UserName,
+    string Email,
+    string? Country
+);

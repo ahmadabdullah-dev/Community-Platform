@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Identity;
 
 namespace DataAccess
 {
@@ -12,12 +13,18 @@ namespace DataAccess
             {
                 opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
             });
-            services.AddIdentityCore<AppUser>(opt =>
+           
+            services.AddIdentity<AppUser, AppRole>(options =>
             {
-                opt.User.RequireUniqueEmail = true;
+                options.User.RequireUniqueEmail = true;
 
-            }).AddRoles<AppRole>()
-              .AddEntityFrameworkStores<ApplicationDbContext>();
+                options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 6;
+            })
+               .AddEntityFrameworkStores<ApplicationDbContext>()
+               .AddDefaultTokenProviders();
+          
+            services.AddDataProtection();                  
 
             services.AddScoped<DataSeeder>();
 
